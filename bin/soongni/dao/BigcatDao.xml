@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="soongni.dao.BigcatDao">
+  
+  <resultMap type="bigcat" id="bigcatMap">
+    <id column="bigno" property="bigno"/>
+    <result column="bigcat" property="bigcat"/>
+    <collection property="midcatList" ofType="Midcat">
+      <id column="midno" property="midno"/>
+     <result column="midcat" property="midcat"/>
+    </collection>
+  </resultMap>
+  
+   <resultMap type="midcat" id="midcatMap2">
+    <id column="midno" property="midno"/>
+     <result column="midcat" property="midcat"/>
+  </resultMap>
+  
+
+  <select id="selectList" resultMap="bigcatMap, midcatMap2" parameterType="map" >
+    select bi.bigno, bi.bigcat, mi.midno, mi.midcat
+    from bigcat bi
+    left outer join midcat mi on mi.bigno = bi.bigno
+    order by bigno asc
+  </select>
+  
+  
+  
+  
+</mapper>
+
+
+
+
