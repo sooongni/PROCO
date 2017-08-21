@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="css/cart.css">
+</head>
+<body>
+	<nav id="menu">
+		<ul>
+			<section id="section1">
+			</section>
+		</ul>
+	</nav>
+	<div id="btn">
+		<i id="cartIcon" class="fa fa-shopping-cart" aria-hidden="true">CART
+		</i>
+	</div>
+</body>
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="./js/handlebars-v4.0.10.js"></script>
+<script src=./js/cart.js></script>
+
+
+
+<script id="cartlist-template" type="text/x-handlebars-template">
+{{#each cartlist}}
+	<div class="mediabox">
+        <img src="{{logo}}"/>
+       <h2>{{brname}}</h2>
+       <p>{{dscp}}</p>
+       <h3>{{titl}}<span class="fa fa-times remove" aria-hidden="true"></span></h3>
+    </div>
+{{/each}}
+</script>
+
+</html>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="soongni.dao.CodeDao">
+  
+  <resultMap type="code" id="codeMap">
+    <id column="postno" property="postno"/>
+    <result column="mno" property="mno"/>
+    <result column="midno" property="midno"/>
+    <result column="comno" property="comno"/>
+    <result column="titl" property="titl"/>
+    <result column="dscp" property="dscp"/>
+    <result column="sdt" property="sdt" />
+    <result column="edt" property="edt"/>
+    <result column="podate" property="podate"/>
+    <result column="potime" property="potime"/>
+    <result column="good" property="good"/>
+    <result column="view" property="view"/>
+    <result column="stat" property="stat"/>
+    <result column="code" property="code"/>
+    <result column="type" property="type"/>
+    <result column="brname" property="brname"/>
+    <result column="used" property="used"/>
+    <result column="logo" property="logo"/>
+    <result column="midcat" property="midcat"/>
+    <result column="offper" property="offper"/>
+    <result column="offpri" property="offpri"/>
+  </resultMap>
+
+  <select id="selectList" resultMap="codeMap" parameterType="map" >
+    select postno, good, dscp, titl, sdt, edt, code, brname, stat, used
+    from post 
+    inner join brand on post.comno = brand.comno
+    order by postno desc;
+  </select>
+  
+  <select id="selectListTop5" resultMap="codeMap" parameterType="map" >
+    select postno, good, dscp, titl, sdt, edt, code, br.brname, stat, used, br.logo
+    from post p
+    inner join brand br on p.comno = br.comno
+    order by good desc limit 5;
+  </select>
+  
+  <select id="selectListbysdt" resultMap="codeMap">
+    select postno, good, dscp, titl, sdt, edt, code, br.brname, stat, used, br.logo     
+    from post p     
+    inner join brand br on p.comno = br.comno 
+    where sdt <![CDATA[>]]> DATE_SUB(NOW(),INTERVAL 7 DAY) <![CDATA[&&]]> sdt<![CDATA[<]]>now()
+    order by sdt desc limit 8;
+  </select>
+  
+  <select id="selectListbyType" resultMap="codeMap" >
+    select postno, good, dscp, titl, sdt, edt, code, br.brname, stat, used, br.logo     
+    from post p     
+    inner join brand br on p.comno = br.comno 
+    where type = 0;
+  </select>
+  
+  <select id="selectListbyMidno" resultMap="codeMap" parameterType="map" >
+    select p.midno, m.midcat, postno, good, dscp, titl, sdt, edt, code, br.brname, stat, used, br.logo     
+    from post p     
+    inner join brand br on p.comno = br.comno 
+    inner join midcat m on p.midno = m.midno
+    where p.midno= #{midno}
+  </select>
+  
+  <select id="selectOnebyBrname" resultMap="codeMap" parameterType="String">
+    select brname, logo, titl, good, view, dscp, p.postno, br.comno, code
+    from post p inner join brand br on p.comno=br.comno
+    where brname = #{brname}
+  </select>
+  
+  <select id="selectOnebyCode" resultMap="codeMap" parameterType="String">
+    select brname, logo, titl, good, view, dscp, p.postno, br.comno, code, stat, sdt, edt, offper, offpri
+    from post p inner join brand br on p.comno=br.comno
+    where code = #{code}
+  </select>
+  
+  <select id="favorClicktoCart" resultMap="codeMap" parameterType="int">
+    select brname, logo, titl, good, view, dscp, p.postno, br.comno, code
+    from post p inner join brand br on p.comno=br.comno
+    where p.postno = #{postno}
+  </select>
+
+  <insert id="insert" parameterType="code" useGeneratedKeys="true" keyColumn="postno" keyProperty="postno">
+    insert into post(mno, midno, comno, titl, dscp, sdt, edt,code, podate, potime, stat, type) 
+    values(#{mno}, #{midno}, #{comno},#{titl},#{dscp},#{sdt},#{edt}, #{code},curdate(), curtime(),  0, #{type})
+  </insert>
+  
+  <update id="favorUpdate" parameterType="code">
+    update post set
+      good=#{good}
+    where postno=#{postno}
+  </update>
+  
+</mapper>
+
+
+
+

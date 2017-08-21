@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)http://localhost:8080/alignCategori.html?2# -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>카테고리 정렬</title>
+  <link rel="stylesheet" href="./카테고리 정렬_files/easy-autocomplete.min.css">
+  <link rel="stylesheet" href="./카테고리 정렬_files/font-awesome.min.css">
+  <link rel="stylesheet" href="./카테고리 정렬_files/common.css">
+  <link rel="stylesheet" href="./카테고리 정렬_files/alignCategori.css">
+  <style>
+#cssvmenu {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  line-height: 1;
+}
+#cssvmenu ul,
+#cssvmenu ul li,
+#cssvmenu ul ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#cssvmenu ul {
+  position: relative;
+  z-index: 597;
+  float: left;
+}
+#cssvmenu ul li {
+  float: left;
+  min-height: 1px;
+  line-height: 1em;
+  vertical-align: middle;
+  position: relative;
+}
+#cssvmenu ul li.hover,
+#cssvmenu ul li:hover {
+  position: relative;
+  z-index: 599;
+  cursor: default;
+}
+#cssvmenu ul ul {
+  visibility: hidden;
+  position: absolute;
+  top: 100%;
+  left: 0px;
+  z-index: 598;
+  width: 100%;
+}
+#cssvmenu ul ul li {
+  float: none;
+}
+#cssvmenu ul ul ul {
+  top: -2px;
+  right: 0;
+}
+#cssvmenu ul li:hover > ul {
+  visibility: visible;
+}
+#cssvmenu ul ul {
+  top: 1px;
+  left: 99%;
+}
+#cssvmenu ul li {
+  float: none;
+}
+#cssvmenu ul ul {
+  margin-top: 1px;
+}
+#cssvmenu ul ul li {
+  font-weight: normal;
+}
+/* Custom CSS Styles */
+#cssvmenu {
+  width: 150px;
+  background: #009688;
+  font-family: Tahoma, Arial, sans-serif;
+  zoom: 1;
+  font-size: 12px;
+}
+#cssvmenu:before {
+  content: '';
+  display: block;
+}
+#cssvmenu:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+#cssvmenu a {
+  display: block;
+  padding: 15px 20px;
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+#cssvmenu > ul {
+  width: 150px;
+}
+#cssvmenu ul ul {
+ width: 150px;
+}
+#cssvmenu > ul > li > a {
+  border-right: 4px solid #ff97b8;
+  color: #ffffff;
+}
+#cssvmenu > ul > li > a:hover {
+  color: #ffffff;
+}
+#cssvmenu > ul > li.active a {
+  background: #0c4182;
+}
+#cssvmenu > ul > li a:hover,
+#cssvmenu > ul > li:hover a {
+  background: #002048
+}
+#cssvmenu li {
+  position: relative;
+}
+#cssvmenu ul li.has-sub > a:after {
+  content: '+';
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  margin-top: -6px;
+}
+#cssvmenu ul ul li.first {
+  -webkit-border-radius: 0 3px 0 0;
+  -moz-border-radius: 0 3px 0 0;
+  border-radius: 0 3px 0 0;
+}
+#cssvmenu ul ul li.last {
+  -webkit-border-radius: 0 0 3px 0;
+  -moz-border-radius: 0 0 3px 0;
+  border-radius: 0 0 3px 0;
+  border-bottom: 0;
+}
+#cssvmenu ul ul {
+  -webkit-border-radius: 0 3px 3px 0;
+  -moz-border-radius: 0 3px 3px 0;
+  border-radius: 0 3px 3px 0;
+}
+#cssvmenu ul ul a {
+  font-size: 12px;
+  color: #ffffff;
+}
+#cssvmenu ul ul a:hover {
+  color: #ffffff;
+}
+#cssvmenu ul ul li {
+  border-bottom: 1px solid #0c4182;
+}
+#cssvmenu ul ul li:hover > a {
+  background: #0c4182;
+  color: #ffffff;
+}
+#cssvmenu.align-right > ul > li > a {
+  border-right: none;
+}
+#cssvmenu.align-right {
+  float: right;
+}
+#cssvmenu.align-right li {
+  text-align: right;
+}
+#cssvmenu.align-right ul li.has-sub > a:before {
+  content: '+';
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  margin-top: -6px;
+}
+#cssvmenu.align-right ul li.has-sub > a:after {
+  content: none;
+}
+#cssvmenu.align-right ul ul {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: -100%;
+  z-index: 598;
+  width: 100%;
+}
+#cssvmenu.align-right ul ul li.first {
+  -webkit-border-radius: 3px 0 0 0;
+  -moz-border-radius: 3px 0 0 0;
+  border-radius: 3px 0 0 0;
+}
+#cssvmenu.align-right ul ul li.last {
+  -webkit-border-radius: 0 0 0 3px;
+  -moz-border-radius: 0 0 0 3px;
+  border-radius: 0 0 0 3px;
+}
+#cssvmenu.align-right ul ul {
+  -webkit-border-radius: 3px 0 0 3px;
+  -moz-border-radius: 3px 0 0 3px;
+  border-radius: 3px 0 0 3px;
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="header_Container">
+    <div class="header">
+
+
+
+<title>헤더이다</title>
+
+<link rel="stylesheet" href="./카테고리 정렬_files/header.css">
+
+
+	<div class="header_detail">
+		<a id="header_home">HOME</a> | <a id="header_about" href="http://localhost:8080/alignCategori.html?2#aboutUs">ABOUT</a>
+		| <a id="header_contact" href="http://localhost:8080/alignCategori.html?2#home_contactUs">CONTACT</a> | <a id="header_join">JOIN IN</a> | <a id="header_login">LOGIN<span>(쑹니)님</span><a id="logout-link" href="http://localhost:8080/alignCategori.html?2#">로그아웃</a></a>
+
+	</div>
+	<img id="header_logo" src="./카테고리 정렬_files/logo1.png">
+	<h1 id="header_copyright">Codes for Pro, Proco</h1>
+	<div id="header_search">
+		
+			<div class="easy-autocomplete eac-icon-right" style="width: 482px;"><input id="home_search" type="text" name="search" autocomplete="off"><div class="easy-autocomplete-container" id="eac-container-home_search"><ul></ul></div></div>
+		<button id="home_schBtn" type="button" class="btn btn-default"><i class="fa fa-search" aria-hidden="true"></i></button>
+	</div>
+
+	<button id="home_cartBtn" type="button" class="btn btn-default">
+		<i class="fa fa-shopping-basket" aria-hidden="true"></i><br>
+
+	</button>
+	<div class="container">
+
+		<div class="shopping-cart">
+			<div id="head">
+				<h3>&nbsp;&nbsp;&nbsp;회원님이 좋아한 코드</h3>
+			</div>
+			<div class="shopping-cart-items"></div>
+			<!--end shopping-cart -->
+		</div>
+	</div>
+
+<script src="./카테고리 정렬_files/header.js"></script>
+<script src="./카테고리 정렬_files/cart.js"></script>
+<script src="./카테고리 정렬_files/userinfo.js"></script>
+
+<script id="cartlist-template" type="text/x-handlebars-template">
+{{#each cartlist}}
+	<div class="mediabox">
+        <div class="cartCol1"><img src="{{logo}}"/><div class="cartBrname">{{brname}}</div></div>
+       <h3>{{titl}}</h3>
+       <p>{{code}}<button class="getCartnoBtn" type="button" value={{cartno}} data-postno={{postno}}>
+		 <i class="fa fa-times" aria-hidden="true"></i></botton></p>
+    </div>
+{{/each}}
+</script>
+<script>
+
+</script>
+
+</div>
+  </div>
+  <!--header_Container-->
+
+ 
+
+  <div class="alignCategori_Container">
+    <div class="alignCategori_menuBar_Container" style="position: fixed; top: 0px;">
+      <div id="align_Categori">카테고리 정렬</div>
+      	<div id="cssvmenu">
+      	<ul>
+ <li class="active has-sub">
+     <a href="http://localhost:8080/alignCategori.html?2#"><span>SPEICIAL:여름휴가</span></a>
+      <ul>
+         <li><a href="http://localhost:8080/alignCategori.html?2#"><span>여름01</span></a>
+         </li>
+         <li><a href="http://localhost:8080/alignCategori.html?2#"><span>여름02</span></a>
+         </li>
+      </ul>
+  </li>
+ <li class="active has-sub">
+     <a href="http://localhost:8080/alignCategori.html?2#"><span>외식</span></a>
+      <ul>
+         <li><a href="http://localhost:8080/alignCategori.html?2#"><span>여름03</span></a>
+         </li>
+         <li><a href="http://localhost:8080/alignCategori.html?2#"><span>여름04</span></a>
+         </li>
+      </ul>
+  </li>
+ <li class="active has-sub">
+     <a href="http://localhost:8080/alignCategori.html?2#"><span>패션/잡화</span></a>
+      <ul>
+      </ul>
+  </li>
+ <li class="active has-sub">
+     <a href="http://localhost:8080/alignCategori.html?2#"><span>뷰티</span></a>
+      <ul>
+      </ul>
+  </li>
+ <li class="active has-sub">
+     <a href="http://localhost:8080/alignCategori.html?2#"><span>여행</span></a>
+      <ul>
+      </ul>
+  </li>
+ <li class="active has-sub">
+     <a href="http://localhost:8080/alignCategori.html?2#"><span>애완용품</span></a>
+      <ul>
+      </ul>
+  </li>
+ <li class="active has-sub">
+     <a href="http://localhost:8080/alignCategori.html?2#"><span>건강식품</span></a>
+      <ul>
+      </ul>
+  </li>
+ <li class="active has-sub">
+     <a href="http://localhost:8080/alignCategori.html?2#"><span>운동/의료기기</span></a>
+      <ul>
+      </ul>
+  </li>
+ <li class="active has-sub">
+     <a href="http://localhost:8080/alignCategori.html?2#"><span>장난감/게임</span></a>
+      <ul>
+      </ul>
+  </li>
+ <li class="active has-sub">
+     <a href="http://localhost:8080/alignCategori.html?2#"><span>전자기기</span></a>
+      <ul>
+      </ul>
+  </li>
+ <li class="active has-sub">
+     <a href="http://localhost:8080/alignCategori.html?2#"><span>키즈/육아</span></a>
+      <ul>
+      </ul>
+  </li>
+ <li class="active has-sub">
+     <a href="http://localhost:8080/alignCategori.html?2#"><span>도서/문화</span></a>
+      <ul>
+      </ul>
+  </li>
+</ul>
+      	</div>
+      <button id="align_Categori_gosubmitCode">코드등록하러 가기</button>
+    </div>
+    <!--alignCategori_menuBar_Container-->
+    <div class="ss">
+      <h1> special : 여름휴가 </h1>
+      <div class="gallery">
+        <a target="_blank" href="./카테고리 정렬_files/main05.jpg">
+              <img src="./카테고리 정렬_files/main05.jpg" alt="Trolltunga Norway" width="300" height="200">
+            </a>
+        <div class="desc">Add a description of the image here</div>
+      </div>
+
+      <div class="gallery">
+        <a target="_blank" href="./카테고리 정렬_files/main05.jpg">
+              <img src="./카테고리 정렬_files/main05.jpg" alt="Forest" width="600" height="400">
+            </a>
+        <div class="desc">Add a description of the image here</div>
+      </div>
+
+      <div class="gallery">
+        <a target="_blank" href="./카테고리 정렬_files/main05.jpg">
+              <img src="./카테고리 정렬_files/main05.jpg" alt="Northern Lights" width="600" height="400">
+            </a>
+        <div class="desc">Add a description of the image here</div>
+      </div>
+
+      <h1> 외식 </h1>
+      <div class="gallery">
+        <a target="_blank" href="./카테고리 정렬_files/main05.jpg">
+              <img src="./카테고리 정렬_files/main05.jpg" alt="Mountains" width="600" height="400">
+            </a>
+        <div class="desc">Add a description of the image here</div>
+      </div>
+      <div class="gallery">
+        <a target="_blank" href="./카테고리 정렬_files/main05.jpg">
+              <img src="./카테고리 정렬_files/main05.jpg" alt="Trolltunga Norway" width="300" height="200">
+            </a>
+        <div class="desc">Add a description of the image here</div>
+      </div>
+
+      <div class="gallery">
+        <a target="_blank" href="./카테고리 정렬_files/main05.jpg">
+              <img src="./카테고리 정렬_files/main05.jpg" alt="Forest" width="600" height="400">
+            </a>
+        <div class="desc">Add a description of the image here</div>
+      </div>
+
+      <h1> 패션/잡화 </h1>
+      <div class="gallery">
+        <a target="_blank" href="./카테고리 정렬_files/main05.jpg">
+              <img src="./카테고리 정렬_files/main05.jpg" alt="Northern Lights" width="600" height="400">
+            </a>
+        <div class="desc">Add a description of the image here</div>
+      </div>
+
+      <div class="gallery">
+        <a target="_blank" href="./카테고리 정렬_files/main05.jpg">
+              <img src="./카테고리 정렬_files/main05.jpg" alt="Mountains" width="600" height="400">
+            </a>
+        <div class="desc">Add a description of the image here</div>
+      </div>
+      <div class="gallery">
+        <a target="_blank" href="./카테고리 정렬_files/main05.jpg">
+              <img src="./카테고리 정렬_files/main05.jpg" alt="Trolltunga Norway" width="300" height="200">
+            </a>
+        <div class="desc">Add a description of the image here</div>
+      </div>
+
+      <h1> 뷰티 </h1>
+      <div class="gallery">
+        <a target="_blank" href="./카테고리 정렬_files/main05.jpg">
+              <img src="./카테고리 정렬_files/main05.jpg" alt="Forest" width="600" height="400">
+            </a>
+        <div class="desc">Add a description of the image here</div>
+      </div>
+
+      <div class="gallery">
+        <a target="_blank" href="./카테고리 정렬_files/main05.jpg">
+              <img src="./카테고리 정렬_files/main05.jpg" alt="Northern Lights" width="600" height="400">
+            </a>
+        <div class="desc">Add a description of the image here</div>
+      </div>
+
+      <div class="gallery">
+        <a target="_blank" href="./카테고리 정렬_files/main05.jpg">
+              <img src="./카테고리 정렬_files/main05.jpg" alt="Mountains" width="600" height="400">
+            </a>
+        <div class="desc">Add a description of the image here</div>
+      </div>
+
+      <h1> 여행 </h1>
+      <div class="gallery">
+        <a target="_blank" href="./카테고리 정렬_files/main05.jpg">
+              <img src="./카테고리 정렬_files/main05.jpg" alt="Mountains" width="600" height="400">
+            </a>
+        <div class="desc">Add a description of the image here</div>
+      </div>
+
+      <div class="gallery">
+        <a target="_blank" href="./카테고리 정렬_files/main05.jpg">
+              <img src="./카테고리 정렬_files/main05.jpg" alt="Mountains" width="600" height="400">
+            </a>
+        <div class="desc">Add a description of the image here</div>
+      </div>
+      <div class="gallery">
+        <a target="_blank" href="./카테고리 정렬_files/main05.jpg">
+              <img src="./카테고리 정렬_files/main05.jpg" alt="Mountains" width="600" height="400">
+            </a>
+        <div class="desc">Add a description of the image here</div>
+      </div>
+
+      <h1> 애완용품 </h1>
+      <div class="gallery">
+        <a target="_blank" href="./카테고리 정렬_files/main05.jpg">
+              <img src="./카테고리 정렬_files/main05.jpg" alt="Mountains" width="600" height="400">
+            </a>
+        <div class="desc">Add a description of the image here</div>
+      </div>
+      <div class="gallery">
+        <a target="_blank" href="./카테고리 정렬_files/main05.jpg">
+              <img src="./카테고리 정렬_files/main05.jpg" alt="Mountains" width="600" height="400">
+            </a>
+        <div class="desc">Add a description of the image here</div>
+      </div>
+      <div class="gallery">
+        <a target="_blank" href="./카테고리 정렬_files/main05.jpg">
+              <img src="./카테고리 정렬_files/main05.jpg" alt="Mountains" width="600" height="400">
+            </a>
+        <div class="desc">Add a description of the image here</div>
+      </div>
+      <h1> 건강식품 </h1>
+      <div class="gallery">
+        <a target="_blank" href="./카테고리 정렬_files/main05.jpg">
+              <img src="./카테고리 정렬_files/main05.jpg" alt="Mountains" width="600" height="400">
+            </a>
+        <div class="desc">Add a description of the image here</div>
+      </div>
+      <div class="gallery">
+        <a target="_blank" href="./카테고리 정렬_files/main05.jpg">
+              <img src="./카테고리 정렬_files/main05.jpg" alt="Mountains" width="600" height="400">
+            </a>
+        <div class="desc">Add a description of the image here</div>
+      </div>
+      <div class="gallery">
+        <a target="_blank" href="./카테고리 정렬_files/main05.jpg">
+              <img src="./카테고리 정렬_files/main05.jpg" alt="Mountains" width="600" height="400">
+            </a>
+        <div class="desc">Add a description of the image here</div>
+      </div>
+      <h1> 7. 운동/의료기기 </h1>
+      <div class="gallery">
+        <a target="_blank" href="./카테고리 정렬_files/main05.jpg">
+              <img src="./카테고리 정렬_files/main05.jpg" alt="Mountains" width="600" height="400">
+            </a>
+        <div class="desc">Add a description of the image here</div>
+      </div>
+      <div class="gallery">
+        <a target="_blank" href="./카테고리 정렬_files/main05.jpg">
+              <img src="./카테고리 정렬_files/main05.jpg" alt="Mountains" width="600" height="400">
+            </a>
+        <div class="desc">Add a description of the image here</div>
+      </div>
+      <div class="gallery">
+        <a target="_blank" href="./카테고리 정렬_files/main05.jpg">
+              <img src="./카테고리 정렬_files/main05.jpg" alt="Mountains" width="600" height="400">
+            </a>
+        <div class="desc">Add a description of the image here</div>
+      </div>
+
+      <h1> 장난감/게임 </h1>
+      <div class="gallery">
+        <a target="_blank" href="./카테고리 정렬_files/main05.jpg">
+              <img src="./카테고리 정렬_files/main05.jpg" alt="Mountains" width="600" height="400">
+            </a>
+        <div class="desc">Add a description of the image here</div>
+      </div>
+      <div class="gallery">
+        <a target="_blank" href="./카테고리 정렬_files/main05.jpg">
+              <img src="./카테고리 정렬_files/main05.jpg" alt="Mountains" width="600" height="400">
+            </a>
+        <div class="desc">Add a description of the image here</div>
+      </div>
+      <div class="gallery">
+        <a target="_blank" href="./카테고리 정렬_files/main05.jpg">
+              <img src="./카테고리 정렬_files/main05.jpg" alt="Mountains" width="600" height="400">
+            </a>
+        <div class="desc">Add a description of the image here</div>
+      </div>
+
+      <h1> 전자기기 </h1>
+      <div class="gallery">
+        <a target="_blank" href="./카테고리 정렬_files/main05.jpg">
+              <img src="./카테고리 정렬_files/main05.jpg" alt="Mountains" width="600" height="400">
+            </a>
+        <div class="desc">Add a description of the image here</div>
+      </div>
+      <div class="gallery">
+        <a target="_blank" href="./카테고리 정렬_files/main05.jpg">
+              <img src="./카테고리 정렬_files/main05.jpg" alt="Mountains" width="600" height="400">
+            </a>
+        <div class="desc">Add a description of the image here</div>
+      </div>
+      <div class="gallery">
+        <a target="_blank" href="./카테고리 정렬_files/main05.jpg">
+              <img src="./카테고리 정렬_files/main05.jpg" alt="Mountains" width="600" height="400">
+            </a>
+        <div class="desc">Add a description of the image here</div>
+      </div>
+    </div>
+  </div>
+  <!--alignCategori_Container-->
+
+
+
+
+
+<div class="footer">
+
+
+
+<title>Insert title here</title>
+  <link rel="stylesheet" href="./카테고리 정렬_files/footer.css">
+
+
+	<div class="sss" style="display: inline-block">
+		<span id="company">(주)프로모션코드 서초지점</span>
+		<p>© 2017, proco, Inc. All rights reserved.</p>
+	</div>
+	<a href="http://localhost:8080/alignCategori.html?2#header_home"><i id="home_goup" class="fa fa-angle-up fa-5x" aria-hidden="true"></i></a>
+
+</div>
+  <script src="./카테고리 정렬_files/jquery.min.js"></script>
+  <script src="./카테고리 정렬_files/jquery.easy-autocomplete.js"></script>
+  <script src="./카테고리 정렬_files/home.js"></script>
+  <script src="./카테고리 정렬_files/header.js"></script>
+  <script src="./카테고리 정렬_files/handlebars-v4.0.10.js"></script>
+  <script src="./카테고리 정렬_files/alignCategori.js"></script>
+  
+ 
+<script id="ul-template" type="text/x-handlebars-template">
+{{#each list}}
+ <li class='active has-sub'>
+     <a href='#'><span>{{bigcat}}</span></a>
+      <ul>
+	{{#each midcatList}}
+         <li><a href='#'><span>{{midcat}}</span></a>
+         </li>
+	{{/each}}
+      </ul>
+  </li>
+{{/each}}
+</script>
+
+</body></html>
