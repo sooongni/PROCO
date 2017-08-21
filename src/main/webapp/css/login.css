@@ -1,0 +1,132 @@
+h1 {
+	font-weight: normal;
+	font-size: 2.15em;
+	font-weight: 500;
+	margin: 0px;
+	margin-bottom: 20px
+}
+
+h2, .login-btn {
+	font-weight: normal;
+	font-size: 1.15rem;
+	font-weight: 500;
+	letter-spacing: 1px;
+	color: #002048;
+	margin: 0px;
+	margin-bottom: 30px;
+	padding: 5px;
+}
+
+h3, a {
+	font-variant: small-caps;
+	font-size: .8rem;
+	letter-spacing: 1px;
+	font-weight: 700;
+	line-height: 0;
+	margin-bottom: 4px;
+}
+
+/* form */
+.form {
+	max-width: 1024px;
+	width: 350px;
+	height: 500px;
+	position: relative;
+	padding: 30px;
+	top: 100px;
+	margin: auto;
+	background: none;
+	border: 2px solid #002048;
+	box-shadow: 8px 8px 0px 0px #002048;
+	box-sizing: border-box
+}
+
+.sign-in-container {
+	outline: none;
+	cursor: pointer;
+	float: left;
+}
+
+.sign-in-container2 {
+	cursor: pointer;
+	float: right;
+}
+
+#header_logo {
+	width: 30px;
+	display: inline-block;
+}
+
+.header {
+	overflow: visible;
+	height: 20px;
+	margin-bottom: 50px;
+}
+
+#email, #pwd {
+	outline: none;
+	margin-top: 5px;
+	color: #444444;
+	border: 2px solid #002048;
+	border-top: 0;
+	border-left: 0;
+	border-right: 0;
+	margin-bottom: 30px;
+	font-size: .9rem;
+	width: 280px;
+	height: 30px;
+}
+
+.login-btn {
+text-align:center;
+	position: absolute;
+	outline: none;
+	border: 2px solid #002048;
+	background: none;
+	border-radius: 2px;
+	padding-left: 20px;
+	padding-right: 10px;
+	right: 25px;
+	bottom: 0px;
+	transition: transform .2s, box-shadow .2s;
+	transform: translate(-4px, -4px);
+	box-shadow: 4px 4px 0px 0px #002048;
+	margin-left: 205px;
+	width: 150px;
+}
+
+.btn2{
+  	background-color:white;
+  	outline: none;
+  	border: 1px solid gray;
+  	color: gray;
+  	height:25px;
+  	margin-top:5px;
+}
+
+.brname, #ceona, #businessNumber, #ceotel {
+	width: 300px;
+	display: inline-block;
+	outline: none;
+	margin-top: 5px;
+	color: #444444;
+	border: 2px solid #002048;
+	border-top: 0;
+	border-left: 0;
+	border-right: 0;
+	margin-bottom: 30px;
+	font-size: .9rem;
+	height: 30px;
+	
+}
+
+.login-btn:active{
+	transition-delay: -.15s;
+	transform: translate(-2px, -2px);
+	box-shadow: 2px 2px 0px 0px #002048;
+}
+
+.agree {
+	color: #555555;
+	font-size: 0.4rem;
+}

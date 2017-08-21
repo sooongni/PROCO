@@ -1,0 +1,57 @@
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+*{
+font-family: 'nanumgothic';
+  -webkit-font-smoothing: antialiased;
+}
+
+body{
+  margin: 0px;
+  min-width: 1024px;
+}
+
+
+a{
+text-decoration: none;
+}
+
+.clearfix::after {
+   display: block;
+   content: '';
+   clear: both;
+   overflow: auto;
+   zoom: 1;
+}
+
+
+h1{
+margin: 0px;
+font-size: 2rem;
+color: #002048;
+    margin-bottom: 10px;
+
+}
+
+.fa-heart-o {
+	font-size: 1rem;
+	color: crimson;
+}
+
+.fa-heart {
+	color: crimson;
+}
+
+.FavorBtn {
+	width: 20px;
+	height: 20px;
+	background: white;
+	border: none;
+	outline: none;
+}
+
+.designBar{
+	width: 100%;
+    height: 10px;
+    background-color: #002048;
+    margin-top: 10px;
+}

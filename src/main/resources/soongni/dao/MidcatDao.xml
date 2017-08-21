@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="soongni.dao.MidcatDao">
+  
+  <resultMap type="midcat" id="midcatMap">
+    <id column="midno" property="midno"/>
+    <result column="bigno" property="bigno"/>
+    <result column="midcat" property="midcat"/>
+  </resultMap>
+
+  <select id="selectList" resultMap="midcatMap" parameterType="map" >
+    select midno, midcat from midcat
+    order by midno asc;
+
+  </select>
+  
+  
+  
+  
+</mapper>
+
+
+
+

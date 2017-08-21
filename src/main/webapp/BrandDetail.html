@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>Brand</title>
+<link rel="stylesheet"
+	href="./font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="node_modules/easy-autocomplete/dist/easy-autocomplete.min.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/brandDetail.css">
+<link rel="stylesheet" href="jqueryUi/jquery-ui.css">
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="jqueryUi/jquery-ui.js"></script>
+
+</head>
+<body>
+	<div class="header_Container">
+		<div class="header"></div>
+	</div>
+
+	<div class="clearfix BrandDatailContainer">
+		<div class="BrandDetail">
+			<div class="BrandDetailLogo"></div>
+			<button type="button" class="BrandFavorBtn">
+				<div class="BrandAvailable">10개 코드 이용가능</div>
+			</button>
+			<div class="BrandFilter">
+				<p>정렬</p>
+				<input type="checkbox">인기순<br> <input type="checkbox">날짜순<br>
+				<input type="checkbox">정확도순<br>
+			</div>
+		</div>
+		<!-- BrandDetail  -->
+
+		<div class="BrandCodelistContainer">
+			<div class="BrandName"></div>
+			<div class="offerContainer"></div>
+		</div>
+		<!-- BrandCodelistContainer  -->
+	</div>
+	<!-- BrandDatailContainer  -->
+	<div class="footer"></div>
+
+</body>
+<script
+	src="node_modules/easy-autocomplete/dist/jquery.easy-autocomplete.js"></script>
+<script src="./js/handlebars-v4.0.10.js"></script>
+<script src='./js/BrandDetail.js'></script>
+<script src='./js/like.js'></script>
+<script id="brnamebyBrand-template" type="text/x-handlebars-template">
+{{#each listByBrand}}
+{{brname}}
+{{/each}}
+</script>
+<script id="logobyBrand-template" type="text/x-handlebars-template">
+{{#each listByBrand}}
+<img id="Logo" src="{{logo}}">
+{{/each}}
+</script>
+<script id="codeListbyBrand-template" type="text/x-handlebars-template">
+{{#each selectOnebyBrname}}
+			<div class="offerContainerbasic" data-postno="{{postno}}">
+					<div class="offOrWon">
+						35%<br>OFF
+					</div>
+					<div class="Codetitle">{{titl}}</div>
+					<br>
+					<div class="likeandgetCodeContainer">
+						<span class="likeandgetCode">{{used}}&nbsp;
+						<i class="fa fa-eye" aria-hidden="true"></i>&nbsp;&nbsp;<span class="goodCount">{{good}}</span>
+						<button class="FavorBtn" value={{postno}} data-postno="{{postno}}" data-isFav='' data-cartno=''>
+						<i class="fa heartBtn fa-heart-o" aria-hidden="true"></i>
+						</button>
+						</span>
+					</div>
+					<div class="getCodeBtn">코드 얻기</div>
+				</div>
+				<div class="detailAccordion">
+					<h3>코드 상세설명</h3>
+					<div>
+						설명 &nbsp;:&nbsp;&nbsp;{{dscp}}
+					</div>
+				</div>
+{{/each}}
+</script>
+
+</html>

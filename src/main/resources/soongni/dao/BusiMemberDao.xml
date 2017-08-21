@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="soongni.dao.BusiMemberDao">
+  
+  <resultMap type="busimember" id="busimemberMap">
+    <id column="mno" property="mno"/>
+    <result column="email" property="email"/>
+    <result column="comno" property="comno"/>
+    <result column="pwd" property="pwd"/>
+    <result column="alias" property="alias"/>
+    <result column="type" property="type"/> 
+    <result column="pic" property="pic"/>
+    <result column="ceotel" property="ceotel"/>
+    <result column="busino" property="busino"/>
+    <result column="compic" property="compic"/>
+    
+  </resultMap>
+  <select id="selectList" resultMap="busimemberMap" parameterType="map" >
+  
+  </select>
+  
+ <select id='brandMemberBrand' resultMap="busimemberMap" parameterType="int">
+		select b_memb.ceono, brand.brname, brand.comno
+		from b_memb inner join brand on b_memb.comno=brand.comno
+		where ceono = #{ceono}
+	</select> 
+	
+  <insert id="insert" parameterType="busimember">
+    insert into b_memb(ceono, comno, ceotel, busino) 
+    values(#{mno}, #{comno}, #{ceotel},#{busino})
+  </insert>
+  
+</mapper>
+
+
+
+

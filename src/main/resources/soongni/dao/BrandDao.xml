@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="soongni.dao.BrandDao">
+
+	<resultMap type="brand" id="brandMap">
+		<id column="comno" property="comno" />
+		<result column="brname" property="brname" />
+		<result column="logo" property="logo" />
+		<result column="ceono" property="ceono" />
+	</resultMap>
+
+
+	<select id="selectList" resultMap="brandMap" parameterType="map">
+		select comno, brname, logo 
+		from brand;
+	</select>
+
+	<select id='listByBrand2' resultMap="brandMap" parameterType="String">
+		select  comno, brname, logo
+		from brand
+		where brname = #{brname}
+	</select>
+
+	
+	
+	
+	<select id='listByBrand' resultMap="brandMap" parameterType="String">
+		select  comno, brname, logo
+		from brand
+		where brname = #{brname}
+	</select>
+
+	<insert id="insert" parameterType="brand" useGeneratedKeys="true"
+		keyProperty="comno">
+		insert into brand(brname, logo)
+		values(#{brname}, #{logo})
+	</insert>
+
+	
+</mapper>
+
+
+
+

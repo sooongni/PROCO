@@ -1,0 +1,204 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="node_modules/easy-autocomplete/dist/easy-autocomplete.min.css">
+<link rel="stylesheet" href="css/submit_code.css">
+  <link rel="stylesheet" href="jqueryUi/jquery-ui.css">
+  <link rel="stylesheet" href="jqueryUi/demos.css">
+
+<style>
+#fiBrnameSearch {
+	position: absolute;
+	display: inline-block;
+	right: 20px;
+	bottom: 8px;
+	width: 120px;
+	font-size: 0.8rem;
+	height: 30px;
+	border-radius: 3px;
+	background: none;
+	outline: none;
+	border: 1px solid #ccc;
+	z-index: 2;
+}
+
+</style>
+<body>
+
+	<div class="header_Container">
+		<div class="header"></div>
+	</div>
+	<!--header_Container-->
+
+	<div class=submit_code_container>
+		<div class="submit_code_alert">
+			<i class="fa fa-exclamation-triangle" aria-hidden="true"></i> 허위사실
+			등록하지마세요 허위등록 적발시 탈퇴 등 불이익이 따를 수 있습니다.
+		</div>
+
+		<div class="code">
+			<div class="selectCodeType_Container">
+				<label>1. 코드 유형을 선택하세요</label> <br> <select
+					name="selectCodeType" id="selectCodeType">
+					<optgroup label="제휴 할인">
+						<option value="0">제휴할인 - 공용 코드</option>
+					</optgroup>
+					<optgroup label="외부 할인">
+						<option value="1" selected>외부할인 - 공용 코드</option>
+					</optgroup>
+				</select>
+			</div>
+
+			<form class="any_publicCode_Container">
+				<div class="col-2">
+					<label style="position: relative"> 브랜드명<br> <input
+						id="fiBrname" placeholder="브랜드를 검색해보세요." />
+						<button id="fiBrnameSearch" type="button">조회 / 추가</button>
+					</label>
+				</div>
+				<div class="col-2">
+					<label> 프로모션 제목 <input tabindex="2" class="fiTitl" />
+					</label>
+				</div>
+				<div class="col-3">
+					<label for="fiSdt"> 유효기간(코드 시작일) <input type="text" tabindex="3"
+						class="fiSdt" name="fiSdt"/>
+					</label>
+				</div>
+				<div class="col-3">
+					<label for="fiEdt"> 유효기간(코드 종료일) <input type="text" tabindex="4"
+						class="fiEdt" name="fiEdt"/>
+					</label>
+				</div>
+				<div class="col-3">
+					<label> 프로모션 코드 <input tabindex="5" class="outCode">
+					</label>
+				</div>
+				<div class="col-4">
+					<label> 프로모션에 대해 간단히 설명해 주세요 <input tabindex="5"
+						class="fiDscp" />
+					</label>
+				</div>
+				<div class="col-5">
+					<label>카테고리 <select tabindex="5" class="SelectCategori">
+					</select>
+					</label>
+				</div>
+			</form>
+
+			<form class="busi_publicCode_Container">
+				<div class="col-2">
+					<label>브랜드명<br> <input id="busiMemberbrandName" data-comno=""
+					   type="text" tabindex="1" value="" readonly />
+					</label>
+				</div>
+		<div class="col-2">
+					<label> 프로모션 제목 <input tabindex="2" class="fiTitl fiTitl2" />
+					</label>
+				</div>
+				<div class="col-3">
+					<label for="fiSdt"> 유효기간(코드 시작일) <input type="text" tabindex="3"
+						class="fiSdt fiSdt2" name="fiSdt"/>
+					</label>
+				</div>
+				<div class="col-3">
+					<label for="fiEdt"> 유효기간(코드 종료일) <input type="text" tabindex="4"
+						class="fiEdt fiEdt2" name="fiEdt"/>
+					</label>
+				</div>
+				<div class="col-3">
+					<label> 프로모션 코드 <input tabindex="5" class="outCode outCode2">
+					</label>
+				</div>
+				<div class="col-4">
+					<label> 프로모션에 대해 간단히 설명해 주세요 <input tabindex="5"
+						class="fiDscp fiDscp2" />
+					</label>
+				</div>
+				<div class="col-5">
+					<label>카테고리 <select tabindex="5" class="SelectCategori SelectCategori2">
+					</select>
+					</label>
+				</div>
+			</form>
+
+			<button type="button" id="submitBtn">등록</button>
+
+
+		</div>
+		<!--code-->
+	</div>
+	<div class="footer"></div>
+
+	<div class="modal-frame">
+		<div class="modal-body">
+			<div class="modal-inner">
+				<button id="close" class="close">
+					<i class="fa fa-times"></i>
+				</button>
+				<p id='sucOrfailLetter'></p>
+				<label>브랜드명</label> <input type="text" class='brname'
+					id="insertBrname"><br> <label>로고</label> <input
+					type="text" class='logo' id="insertLogo">
+				<button id="create-brand">
+					<i class="fa fa-plus" aria-hidden="true"></i>
+				</button>
+			</div>
+		</div>
+		<div class="modal-overlay"></div>
+	</div>
+
+
+</body>
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="node_modules/easy-autocomplete/dist/jquery.easy-autocomplete.js"></script>
+<script src="jqueryUi/jquery-ui.js"></script>
+<script src="./js/handlebars-v4.0.10.js"></script>
+<script src='./js/submit_code.js'></script>
+<script>
+$( function() {
+  var dateFormat = "yy-mm-dd",
+  fiSdt = $( ".fiSdt" )
+      .datepicker({
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 1
+      })
+      .on( "change", function() {
+    		console.log("!@!@")
+      	fiEdt.datepicker( "option", "minDate", getDate( this ) );
+      }),
+      fiEdt = $( ".fiEdt" ).datepicker({
+      defaultDate: "+1w",
+      changeMonth: true,
+      numberOfMonths: 1
+    })
+    .on( "change", function() {
+  	  fiSdt.datepicker( "option", "maxDate", getDate( this ) );
+    });
+
+  function getDate( element ) {
+    var date;
+    try {
+      date = $.datepicker.parseDate( dateFormat, element.value );
+    } catch( error ) {
+      date = null;	
+    }
+
+    return date;
+  }
+} );
+
+</script>
+<script id="select-template" type="text/x-handlebars-template">
+{{#each list}}
+	<optgroup label={{bigcat}}>
+	 {{#each midcatList}}
+	<option value={{midno}}>{{midcat}}</option>
+	{{/each}}
+	</optgroup>
+{{/each}}
+</script>
+</html>

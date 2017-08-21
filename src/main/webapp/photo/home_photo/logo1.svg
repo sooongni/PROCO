@@ -1,0 +1,37 @@
+<svg id="그룹_1" data-name="그룹 1" xmlns="http://www.w3.org/2000/svg" viewBox="295.059 656.5 168.828 174.5">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        font-size: 43px;
+        font-family: LiHeiPro, LiHei Pro;
+      }
+
+      .cls-2, .cls-3, .cls-4 {
+        fill: none;
+        stroke: #fff;
+      }
+
+      .cls-2 {
+        stroke-width: 5px;
+      }
+
+      .cls-4 {
+        stroke-width: 3px;
+      }
+    </style>
+  </defs>
+  <text id="PROCO" class="cls-1" transform="translate(306 825)"><tspan x="0" y="0">PROCO</tspan></text>
+  <path id="패스_4" data-name="패스 4" class="cls-2" d="M323.254,712.538l23.068-23.376,65.439-.764L433.6,711.726l-54.612,65.048Z"/>
+  <line id="선_2" data-name="선 2" class="cls-3" x1="55" y2="10" transform="translate(378.5 712.5)"/>
+  <line id="선_3" data-name="선 3" class="cls-3" x2="55" y2="10" transform="translate(323.5 712.5)"/>
+  <line id="선_4" data-name="선 4" class="cls-3" x2="32" y2="90" transform="translate(346.5 688.5)"/>
+  <line id="선_5" data-name="선 5" class="cls-3" x1="34" y2="89" transform="translate(378.5 687.5)"/>
+  <line id="선_6" data-name="선 6" class="cls-3" x2="22" y2="30" transform="translate(378.5 688.5)"/>
+  <line id="선_7" data-name="선 7" class="cls-3" y1="31" x2="21" transform="translate(357.5 687.5)"/>
+  <line id="선_8" data-name="선 8" class="cls-4" y2="13" transform="translate(378.5 656.5)"/>
+  <line id="선_9" data-name="선 9" class="cls-4" x2="6" y2="11" transform="translate(328.5 665.5)"/>
+  <line id="선_10" data-name="선 10" class="cls-4" x2="13" y2="4" transform="translate(295.5 705.5)"/>
+  <line id="선_11" data-name="선 11" class="cls-4" x1="7" y2="11" transform="translate(422.5 665.5)"/>
+  <line id="선_12" data-name="선 12" class="cls-4" y1="4" x2="15" transform="translate(448.5 705.5)"/>
+</svg>

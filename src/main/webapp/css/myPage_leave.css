@@ -1,0 +1,119 @@
+
+.myPage_Container {
+  position: relative;
+  box-sizing: border-box;
+  width: 1024px;
+  margin: auto;
+  margin-top: 20px;
+  height: 600px;
+}
+
+.myPage_menuBar_Container {
+  position: absolute;
+  width: 150px;
+  border: 1px solid #ccc;
+  color: #555555;
+  display: inline-block;
+}
+
+ul {
+  margin-bottom: 30px;
+  list-style: none;
+  padding-left: 8px;
+  font-size: 0.9rem;
+
+}
+
+li {
+  margin-top: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+#myPage_List_title {
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 10px;
+  padding-bottom: 10px;
+  font-size: 1.3rem;
+  text-align: center;
+  border-bottom: 1px solid lightgray;
+}
+
+#myPage_List_gosubmitCode {
+  width: 100%;
+  height: 80px;
+  background-color: white;
+  border: none;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  outline: none;
+  font-size: 1rem;
+}
+
+#myPage_List_gosubmitCode:hover {
+  background-color: #002048;
+  color: white;
+  border: 1px solid #002048;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+  .leave_Container {
+    box-sizing: border-box;
+    position: absolute;
+    width: 850px;
+    right: 5px;
+    height: 430px;
+  }
+
+  #myPage_leave_btn{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    width:200px;
+    height: 40px;
+    border: none;
+    outline: none;
+    background-color: #002048;
+    color: white;
+  }
+
+  #leave_confirmpwd {
+    display: inline-block;
+    position: relative;
+    width: 500px;
+    height: 15px;
+    line-height: 15px;
+    margin: 5px -5px 0;
+    padding: 7px 5px 3px;
+    border: 1px solid none;
+    outline: none;
+    font-size: 1rem;
+    font-weight: 200;
+    opacity: .66;
+    transition: opacity .3s, box-shadow .3s;
+  }
+  .leave_reason{
+    margin-top:10px;
+    margin-bottom: 50px;
+    margin-left: 10px;
+  }
+
+  #untilNowthankYou{
+    position: absolute;
+    right: 5px;
+  }
+
+  .leave_continue{
+    margin-top:10px;
+    margin-bottom: 50px;
+    margin-left: 10px;
+  }
+
+  input[type=checkbox]:checked + label {
+  color: pink;
+  font-style: normal;
+}

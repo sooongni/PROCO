@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>코드 목록/현황</title>
+  <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="node_modules/easy-autocomplete/dist/easy-autocomplete.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/myPage_codelist.css">
+</head>
+<body>
+  <div class="header_Container">
+    <div class="header"></div>
+  </div>
+  <!--header_Container-->
+
+  <div class="notYet">
+</div>
+
+  <div class="myPage_Container">
+    <div class="myPage_menuBar_Container">
+      <div id="myPage_List_title">마이페이지</div>
+      <ul class="w3-ul w3-border">
+
+        <ul>회원 정보
+          <li>회원 정보 변경</li>
+          <li>회원 탈퇴</li>
+        </ul>
+
+        <ul>코드 관리
+          <li>개별 코드</li>
+          <li id="mypage_codelist">등록한 코드</li>
+        </ul>
+      </ul>
+      <button id="myPage_List_gosubmitCode">코드등록하러 가기</button>
+    </div>
+    <div class='codeListContaier'><!--for demo wrap-->
+    <h1>등록한 코드</h1>
+    <div class="tbl-header">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <thead>
+          <tr>
+            <th width="7%">번호</th>
+            <th width= "13%">브랜드명</th>
+            <th width="20%">프로모션제목 </th>
+            <th width="19%">유효기간</th>
+            <th width="18%">코드</th>
+            <th width= "9%">코드상태</th>
+            <th width="12%">사용수</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+    <div class='tbody-Container'>
+      <table class='codelist_tbl' cellpadding="0" cellspacing="0" border="0">
+      
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  </div>
+
+  <div class="footer"></div>
+</body>
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="node_modules/easy-autocomplete/dist/jquery.easy-autocomplete.js"></script>
+<script src="./js/header.js"></script>
+<script src="./js/handlebars-v4.0.10.js"></script>
+<script src="./js/codelistMain.js"></script>
+
+<script>
+  $('#mypage_codelist').click(function() {
+    location.href = "myPage_codelist.html"
+  })
+
+  $('#myPage_List_gosubmitCode').click(function() {
+    location.href = "submit_code.html"
+  })
+
+
+  $('.header').load("header.html")
+  $('.footer').load("footer.html")
+  $('.notYet').load("notYet.html")
+</script>
+
+<script id="tbody-template" type="text/x-handlebars-template">
+{{#each list}}
+<tr>
+  <td>{{postno}}</td>
+  <td>{{brname}}</td>
+  <td>{{titl}}</td>
+  <td>{{sdt}}~{{edt}}</td>
+  <td>{{code}}</td>
+  <td>{{stat}}</td>	
+  <td>{{used}}</td>
+</tr>
+{{/each}}
+</script>
+</html>

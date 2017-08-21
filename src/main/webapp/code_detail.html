@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>코드 디테일</title>
+  <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/code_detail.css">
+
+</head>
+
+<body>
+  <div class="header_Container">
+    <div class="slide_container">
+    </div>
+    <div class="header"></div>
+  </div>
+  <!--header_Container-->
+
+  <div class="notYet">
+</div>
+
+
+  <div class="wrapper">
+    <div class="box">
+
+
+      <div class="product">
+        <div class="column">
+          <div class="img-wrapper">
+            <img class="brand_img" src="./photo/home_photo/image01.jpg" alt="">
+          </div>
+        </div>
+        <div class="column">
+          <h2>여름 무지 티셔츠 최대 30% 할인</h2>
+          <div class="brand">올슨</div>
+          <div class="desc">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque dignissim libero eu rhoncus. Phasellus dui ante, elementum vitae malesuada non, vestibulum nec sem.
+          </div>
+
+          <br>
+          <div class="price">
+            5장 이상 구매시<span>30%</span> 20000 <i class="fa fa-eye" aria-hidden="true"></i> &nbsp;&nbsp;1000&nbsp;<i class="fa fa-heart-o" aria-hidden="true"></i></p>
+
+          </div>
+          <div class="code">
+            <span>EA0B-DBAE-DFQ1-DDDD</span>
+          </div>
+          <button class="copyCodeBtn">코드 복사</button>
+          <button class="copiedBtn">복사됨<i class="fa fa-check" aria-hidden="true"></i></button>
+          <div class="social_link">
+            <a>  <i class="fa fa-facebook-square" aria-hidden="true"></i>
+            <i class="fa fa-twitter-square" aria-hidden="true"></i></a>
+</div>
+          </div>
+    </div>
+  </div>
+  </div>
+<div class="footer"></div>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="./js/header.js"></script>
+
+<script>
+$('.header').load("header.html")
+$('.slide_container').load("cart.html")
+$('.footer').load("footer.html")
+$('.notYet').load("notYet.html")
+
+  $('.copyCodeBtn').css('display','')
+  $('.copiedBtn').css('display','none')
+$('.copyCodeBtn').click(function() {
+  $(this).css('display','none')
+  $('.copiedBtn').css('display','')
+});
+</script>
+</html>
