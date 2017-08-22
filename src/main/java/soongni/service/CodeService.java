@@ -5,7 +5,7 @@ import java.util.List;
 import soongni.domain.Code;
 
 public interface CodeService {
-	List<Code> list(int pageNo, int pageSize) throws Exception;
+	List<Code> list(int mno) throws Exception;
 	void add(Code code) throws Exception;
 	List<Code> selectOnebyBrname(String brname) throws Exception;
 	List<Code> favorClicktoCart(int postno) throws Exception;

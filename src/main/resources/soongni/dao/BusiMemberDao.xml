@@ -23,10 +23,13 @@
   </select>
   
  <select id='brandMemberBrand' resultMap="busimemberMap" parameterType="int">
-		select b_memb.ceono, brand.brname, brand.comno
+		select memb.pic, memb.email, memb.alias, b_memb.ceono, brand.brname, brand.comno, b_memb.ceotel, brand.logo, b_memb.busino
 		from b_memb inner join brand on b_memb.comno=brand.comno
+		inner join memb on b_memb.ceono=memb.mno
 		where ceono = #{ceono}
-	</select> 
+</select> 
+	
+     			
 	
   <insert id="insert" parameterType="busimember">
     insert into b_memb(ceono, comno, ceotel, busino) 

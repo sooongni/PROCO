@@ -1,5 +1,6 @@
 package soongni.control.json;
 
+import java.io.File;
 import java.util.HashMap;
 
 import javax.servlet.ServletContext;
@@ -8,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
+import net.coobird.thumbnailator.Thumbnails;
 import soongni.domain.Member;
 import soongni.service.MemberService;
 
@@ -41,40 +44,59 @@ public class MemberControl {
     return new JsonResult(JsonResult.SUCCESS, "ok");
   }
   
-  /*@RequestMapping("detail")
-  public JsonResult detail(int no) throws Exception {
-    Code code = codeService.get(no);
-    if (code == null) {
-      return new JsonResult(JsonResult.FAIL, no + "번 강사가 없습니다.");
+  @RequestMapping("passwordCheck")
+  public JsonResult passwordCheck(int mno, String pwd) throws Exception {
+	  System.out.println(pwd);
+	  Member member = null;
+	  member = memberService.passwordCheck(mno, pwd);
+    if (member == null) {
+      return new JsonResult(JsonResult.FAIL, "fail");
     }
-    return new JsonResult(JsonResult.SUCCESS, code);
+    return new JsonResult(JsonResult.SUCCESS, member);
+  }
+  
+  @RequestMapping("selectOne")
+  public JsonResult selectOne(int mno) throws Exception {
+	  System.out.println(mno);
+	  Member member = null;
+	  member = memberService.selectOne(mno);
+    if (member == null) {
+      return new JsonResult(JsonResult.FAIL, "fail");
+    }
+    return new JsonResult(JsonResult.SUCCESS, member);
   }
   
   @RequestMapping("update")
-  public JsonResult update(Code code) throws Exception {
-    codeService.update(code);
+  public JsonResult update(Member member) throws Exception {
+    memberService.update(member);
     return new JsonResult(JsonResult.SUCCESS, "ok");
   }
   
   @RequestMapping("delete")
-  public JsonResult delete(int no) throws Exception {
-	  codeService.remove(no);
+  public JsonResult delete(int mno) throws Exception {
+	  memberService.delete(mno);
     return new JsonResult(JsonResult.SUCCESS, "ok");
   }  
- */
+
  
-  /*@RequestMapping("upload")
-  public JsonResult upload(MultipartFile[] files) throws Exception {
-    ArrayList<String> fileList = new ArrayList<>();
-    for (MultipartFile file : files) {
-      if (file.isEmpty())
-        continue;
-      String filename = getNewFilename();
-      file.transferTo(new File(servletContext.getRealPath("/teacher/photo/" + filename)));
-      fileList.add(filename);
-    }
-    return new JsonResult(JsonResult.SUCCESS, fileList);
+  @RequestMapping("photoupload")
+  public JsonResult upload(Member member, MultipartFile[] files) throws Exception {
+	String newFilename = this.getNewFilename();
+	
+    File file = new File(servletContext.getRealPath("/memberprofile/" + newFilename));
+    files[0].transferTo(file);
+    member.setPic("/memberprofile/" + newFilename);
+    
+    File thumbnailfile = new File(servletContext.getRealPath("/memberprofile/" + newFilename + "_190"));
+    Thumbnails.of(file).size(190, 140).outputFormat("png").toFile(thumbnailfile);
+    
+    
+    memberService.photoupload(member);
+    
+    return new JsonResult(JsonResult.SUCCESS, "ok");
   }
+  
+ 
   
   int count = 0;
   synchronized private String getNewFilename() {
@@ -82,7 +104,7 @@ public class MemberControl {
       count = 0;
     }
     return String.format("%d_%d", System.currentTimeMillis(), ++count); 
-  }*/
+  }
 }
 
 

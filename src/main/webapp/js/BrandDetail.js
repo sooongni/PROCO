@@ -4,8 +4,7 @@ var userNo = 0;
 	})
 	$(function() {
 		$('.footer').load("footer.html")
-		$('.header').load("header.html")
-		$('.notYet').load("notYet.html")
+		$('.header_Container').load("header.html")
 	})
 
 	var urlBrandName = decodeURIComponent(location.href.split('?')[1])

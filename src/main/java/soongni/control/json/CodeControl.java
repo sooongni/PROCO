@@ -22,13 +22,11 @@ public class CodeControl {
   @Autowired CodeService codeService;
   
   @RequestMapping("list")
-  public JsonResult list(
-      @RequestParam(defaultValue="1") int pageNo, 
-      @RequestParam(defaultValue="5") int pageSize) throws Exception {
+  public JsonResult list(int mno) throws Exception {
     
 	
     HashMap<String,Object> dataMap = new HashMap<>();
-    dataMap.put("list", codeService.list(pageNo, pageSize));
+    dataMap.put("list", codeService.list(mno));
    
     
     return new JsonResult(JsonResult.SUCCESS, dataMap);

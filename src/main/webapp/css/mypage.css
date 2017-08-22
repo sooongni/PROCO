@@ -1,145 +1,215 @@
+.myPage_Container {
+	position: relative;
+	box-sizing: border-box;
+	width: 1024px;
+	margin: auto;
+	margin-top: 20px;
+	height: 600px;
+}
 
-  .myPage_Container {
-    position: relative;
-    box-sizing: border-box;
-    width: 1024px;
-    margin: auto;
-    margin-top: 20px;
+.myPage_menuBar_Container {
+	position: absolute;
+	width: 218px;
+	border: 1px solid #ccc;
+	border-top: none;
+	color: #002048;
+	display: inline-block;
+}
 
-    height: 600px;
-  }
+.aliasemailHello {
+	font-size: 2rem;
+	color: #002048;
+}
 
-  .myPage_menuBar_Container {
-    position: absolute;
-    width: 150px;
-    border: 1px solid #ccc;
-    color: #555555;
+ul {
+	margin-bottom: 30px;
+	list-style: none;
+	padding-left: 8px;
+	font-size: 0.9rem;
+}
+
+li {
+	margin-top: 10px;
+	padding-left: 15px;
+	padding-right: 15px;
+	cursor: pointer;
+}
+
+#myPage_Categori {
+	box-sizing: border-box;
+	width: 100%;
+	margin-top: 10px;
+	padding-bottom: 10px;
+	font-size: 1.3rem;
+	text-align: center;
+	border-bottom: 1px solid #ccc;
+}
+
+#myPage_Categori_gosubmitCode {
+	width: 100%;
+	height: 80px;
+	background-color: white;
+	border: none;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	outline: none;
+	font-size: 1rem;
+}
+
+#myPage_Categori_gosubmitCode:hover {
+	background-color: #002048;
+	color: white;
+	border: 1px solid #002048;
+}
+
+h1 {
+	font-size: 1.5rem;
+}
+
+.myPage_detail_Container {
+	box-sizing: border-box;
+	position: absolute;
+	width: 850px;
+	right: 5px;
+	height: 600px;
+}
+
+.mypage_basicprofile_photo {
+	width: 110px;
+	height: 120px;
+	margin: auto;
+	margin-top: 10px;
+	text-align: center;
+}
+
+.mypage_basicprofile_photo img {
+	box-sizing: border-box;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+}
+
+.mypage_profile_detail_Container1 {
+	position: absolute;
+	display: inline-block;
+	margin-left: 10px;
+	font-size: 1rem;
+	width: 410px;
+	box-sizing: border-box;
+	border-right: 1px solid #ccc;
+}
+
+.mypage_profile_detail_Container2 {
+	position: absolute;
+	right: 5px;
+	display: inline-block;
+	margin-left: 5px;
+	font-size: 1rem;
+	width: 410px;
+	box-sizing: border-box;
+}
+
+.col-1 {
+	width: 110px;
+	height: 40px;
+	padding-left: 10px;
+	line-height: 40px;
+	border: 1px solid #ccc;
+	display: inline-block;
+	color: #002048;
+	font-weight: bold;
+	font-size: 0.8rem;
+}
+
+.col-2 {
+	width: 260px;
+	text-align: right;
+	padding-right: 10px;
+	line-height: 40px;
+	border: 1px solid #ccc;
+	display: inline-block;
+	box-sizing: border-box;
+	font-size: 0.8rem;
+}
+
+#basic_info_letter {
+	margin-left: 10px;
+}
+
+#busi_info_letter {
+	margin-left: 0px
+}
+
+#myPage_leave {
+	cursor: pointer;
+}
+
+input[type="file"] {
+	display: none;
+}
+
+.custom-file-upload {
+	border: 1px solid #f6f6f6;
     display: inline-block;
-  }
-
-  ul {
-    margin-bottom: 30px;
-    list-style: none;
-    padding-left: 8px;
-    font-size: 0.9rem;
-  }
-
-  li {
-    margin-top: 10px;
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-
-  #myPage_Categori {
-    box-sizing: border-box;
-    width: 100%;
-    margin-top: 10px;
-    padding-bottom: 10px;
-    font-size: 1.3rem;
-    text-align: center;
-    border-bottom: 1px solid lightgray;
-
-  }
-
-  #myPage_Categori_gosubmitCode {
-    width: 100%;
-    height: 80px;
-    background-color: white;
-    border: none;
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-    outline: none;
-    font-size: 1rem;
-  }
-
-  #myPage_Categori_gosubmitCode:hover {
-    background-color: #002048;
-    color: white;
-    border: 1px solid #002048;
-  }
-
-  h1 {
-    font-size: 1.5rem;
-  }
-
-  .myPage_detail_Container {
-    box-sizing: border-box;
-    position: absolute;
-    width: 850px;
-    right: 5px;
-    height: 600px;
-  }
-
-  .mypage_basicprofile_photo {
-    width: 110px;
-    height: 120px;
-    margin: auto;
-    margin-top: 10px;
-    text-align: center;
-  }
-
-  .mypage_basicprofile_photo img {
-    box-sizing: border-box;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-  }
-
-  .mypage_profile_detail_Container1 {
-    position: absolute;
-    display: inline-block;
-    margin-left: 10px;
-    font-size: 1rem;
-    width: 410px;
-    box-sizing: border-box;
-    border-right: 1px solid #ccc;
-  }
-
-  .mypage_profile_detail_Container2 {
-    position: absolute;
-    right: 5px;
-    display: inline-block;
-    margin-left: 5px;
-    font-size: 1rem;
-    width: 410px;
-    box-sizing: border-box;
-  }
-
-  .col-1 {
-    width: 110px;
-    height: 40px;
-    padding-left: 10px;
-    line-height: 40px;
-    border: 1px solid #ccc;
-    display: inline-block;
-    color: #666666;
-    font-weight: bold;
-    font-size: 0.8rem;
-  }
-
-  .col-2 {
-    width: 260px;
-    text-align: right;
-    padding-right: 10px;
-    line-height: 40px;
-    border: 1px solid #ccc;
-    display: inline-block;
-    box-sizing: border-box;
-    font-size: 0.8rem;
-  }
-
-  #basic_info_letter {
-    margin-left: 10px;
-  }
-
-  #busi_info_letter {
-    margin-left: 0px
-  }
-
-  .fa-camera-retro {
-    color: black;
-  }
-
-  #myPage_leave{
+    padding: 6px 12px;
     cursor: pointer;
-  }
+    position: absolute;
+    top: 172px;
+    background: white;
+    left: 159px;
+}
+
+#fa-pencil {
+	color: #002048;
+	font-size: 1.5rem;
+	cursor: pointer
+}
+
+.BrandDetailLogo img {
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+}
+
+.memberDetail {
+	width: 100%;
+	margin-top: 20px;
+	height: 500px;
+}
+
+.memberDetailLabel {
+	width: 191px;
+	font-size: 0.8rem;
+	display: inline-block;
+}
+
+.memberDetail>input {
+	width: 568px;
+	height: 30px;
+	margin: 5px;
+	font-size: 1rem;
+}
+
+h3 {
+	margin-bottom: 0px;
+}
+
+.editProfileBtn {
+	position: absolute;
+	right: 7px;
+	width: 100px;
+	height: 30px;
+	background: white;
+	border: 1px solid #aaa;
+	color: #002048;
+	font-size: 1rem;
+	margin-top: 30px;
+	outline:none;
+}
+
+.editProfileBtn:hover {
+	background: #002048;
+	color: white;
+	font-size: 1rem;
+}
+

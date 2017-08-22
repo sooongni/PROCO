@@ -29,11 +29,13 @@
     <result column="offpri" property="offpri"/>
   </resultMap>
 
-  <select id="selectList" resultMap="codeMap" parameterType="map" >
+  <select id="selectList" resultMap="codeMap" parameterType="int" >
     select postno, good, dscp, titl, sdt, edt, code, brname, stat, used
     from post 
     inner join brand on post.comno = brand.comno
-    order by postno desc;
+    where mno=#{mno}
+    order by postno desc
+    
   </select>
   
   <select id="selectListTop5" resultMap="codeMap" parameterType="map" >

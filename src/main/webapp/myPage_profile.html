@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>Mypage</title>
+</head>
+<link rel="stylesheet"
+	href="./font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/mypage.css">
+<link rel="stylesheet" href="css/brandDetail.css">
+<link rel="stylesheet" href="jqueryUi/jquery-ui.css">
+
+<style>
+
+#myPage_List_gosubmitCode{
+    width: 100%;
+    height: 80px;
+    background-color: white;
+    border: none;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+    font-size: 1rem;
+}
+</style>
+<body>
+		<div class="BrandDetailLogo">
+				<img id="profileImg">
+				<div class="file-upload btn btn-primary">
+					<label for="file-upload" class="custom-file-upload"> <span>
+					<i class="fa fa-pencil" id="fa-pencil" aria-hidden="true"></i></span>
+					</label> <input id="file-upload" type="file" name="files" />
+				</div>
+			</div>
+
+			<div class="myPage_menuBar_Container">
+
+				<ul class="w3-ul w3-border">
+					<ul>
+						회원 정보
+						<li id="editProfile">회원 정보 변경</li>
+						<li id="myPage_leave">회원 탈퇴</li>
+					</ul>
+
+					<ul>
+						코드 관리
+						<li id="mypage_codelist">등록한 코드</li>
+					</ul>
+				</ul>
+				<button id="myPage_Categori_gosubmitCode">코드등록하러 가기</button>
+			</div>
+</body>
+<script src="node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+<script src="node_modules/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+<script src="node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
+<script src="js/myPage_profile.js"></script>
+</html>

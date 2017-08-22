@@ -16,7 +16,6 @@
 
   <select id="selectList" resultMap="memberMap" parameterType="map" >
     select * from memb;
-
   </select>
   
   <select id="selectOneByEmailPassword" resultMap="memberMap" parameterType="map">
@@ -26,12 +25,39 @@
   </select>
   
   
+  <select id="passwordCheck" resultMap="memberMap" parameterType="map">
+    select pwd
+    from memb
+    where mno=#{mno} and pwd=#{pwd}
+  </select>
+  
+  <select id="selectOne" resultMap="memberMap" parameterType="int">
+  	select *
+    from memb
+    where mno=#{mno}
+  </select>
+  
   <insert id="insert" parameterType="member" useGeneratedKeys="true" keyColumn="mno" keyProperty="mno">
     insert into memb(email,pwd,alias,type) 
     values(#{email},password(#{pwd}),#{alias}, #{type})
     
   </insert>
   
+  <update id="update" parameterType="member">
+    update memb set
+    alias=#{alias}, pwd=password(#{pwd})
+    where mno=#{mno}
+  </update>
+  
+  <update id="photoupload" parameterType="member">
+    update memb set
+    pic=#{pic}
+    where mno=#{mno}
+  </update>
+  
+  <delete id="delete" parameterType="member">
+    delete from memb where mno=#{mno}
+  </delete>
 </mapper>
 
 

@@ -3,36 +3,66 @@
 <head>
 <meta charset="utf-8">
 <title>헤더이다</title>
+<link rel="stylesheet"
+	href="./font-awesome-4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/header.css">
+<style>
+
+</style>
+
 </head>
 <body>
-	<div class="header_detail">
-		<a id="header_home">HOME</a> | <a id="header_about" href="#aboutUs">ABOUT</a>
-		| <a id="header_contact" href="#home_contactUs">CONTACT</a> | <a
-			id="header_join">JOIN IN</a> | <a id="header_login">LOGIN</a>
-
-	</div>
-	<img id="header_logo" src="photo/logo1.png">
-	<h1 id="header_copyright">Codes for Pro, Proco</h1>
-	<div id="header_search">
-		
-			<input id="home_search" type="text" name="search">
-		<button id="home_schBtn" type="button" class="btn btn-default"><i class="fa fa-search" aria-hidden="true"></i></button>
-	</div>
-
-	<button id="home_cartBtn" type="button" class="btn btn-default">
-		<i class="fa fa-shopping-basket" aria-hidden="true"></i><br>
-
-	</button>
-	<div class="container">
-		<div class="shopping-cart">
+	<div class="header">
+		<div class="headertop">
+			<div class="header_detail">
+				<a class="headerBtn" id="header_home"><i class="fa fa-home" aria-hidden="true"></i>  HOME</a> 
+				<a class="headerBtn" id="header_about" href="#aboutUs"><i class="fa fa-question-circle-o" aria-hidden="true"></i>  ABOUT</a> 
+				<a class="headerBtn" id="header_contact" href="#home_contactUs"><i class="fa fa-phone" aria-hidden="true"></i>  CONTACT</a> 
+				<a class="headerBtn" id="home_cartBtn"><i class="fa fa-shopping-basket" aria-hidden="true"></i>CART</a>
+				<a class="headerBtn" id="header_join"><i class="fa fa-user" aria-hidden="true"></i>  JOIN IN</a> 
+				<a class="headerBtn" id="header_login"> <i class="fa fa-sign-in" aria-hidden="true"></i>  LOGIN </a> 
+				<div class="headerBtn dropdown">
+				  <input class="dropdown-toggle" type="text">
+				  <a class="headerBtn" id="header_id"></a>
+				  <ul class="dropdown-content">
+				    <li><a href="mypage.html">마이페이지</a></li>
+				    <li><a href="submit_code.html">코드등록</a></li>
+				    <li><a id="logout-link" href="#">Log out</a></li>
+				  </ul>
+				</div>
+				
+				
+				<div class="shopping-cart">
 			<div id="head">
 				<h3>&nbsp;&nbsp;&nbsp;회원님이 좋아한 코드</h3>
 			</div>
 			<div class="shopping-cart-items"></div>
 			<!--end shopping-cart -->
 		</div>
+			</div>
+			<img id="header_logo" src="photo/mainlogo.png">
+			<div id="header_search">
+
+			<input id="home_search" type="text" name="search"
+				placeholder="브랜드 검색하기">
+
+			<button id="home_schBtn" type="button" class="btn btn-default">
+				<i class="fa fa-search" aria-hidden="true"></i>
+			</button>
+		</div>
+		</div>
+	</div>
+
+	<div class="headerBottom">
+		<h1 id="header_copyright">Codes for Pro, Proco</h1>
+		<div class="maindesignBar"></div>
+		<h3 id="header_copyright2">프로들을 위한 코드, 프로코</h3>
+	</div>	
+
+
+	<div class="container">
+		
 	</div>
 </body>
 <script src="./js/header.js"></script>
@@ -47,5 +77,9 @@
 		 <i class="fa fa-times" aria-hidden="true"></i></botton></p>
     </div>
 {{/each}}
+</script>
+<script>
+$('.dropdown').css('display','none')
+
 </script>
 </html>

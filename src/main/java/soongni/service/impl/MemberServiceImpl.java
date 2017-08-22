@@ -38,6 +38,12 @@ public class MemberServiceImpl implements MemberService {
 	    
 	    return memberDao.selectOneByEmailPassword(valueMap);
 	  }
+  
+  
+  public void delete(int mno) throws Exception {
+	  memberDao.delete(mno);
+		
+	}
   /*public Code get(int no) throws Exception {
     return codeDao.selectOne(no);
   }
@@ -63,13 +69,35 @@ public void update(Code code) throws Exception {
 }
 
 @Override
-public void remove(int no) throws Exception {
-	// TODO Auto-generated method stub
-	
-}
+
   
   // XML 태그로 트랜잭션을 설정하게 되면 @Transactional 애노테이션은 필요없다.
   //@Transactional(propagation=Propagation.REQUIRED, rollbackFor=Exception.class)*/
+
+@Override
+public Member passwordCheck(int mno , String pwd) {
+	HashMap<String,Object> valueMap = new HashMap<>();
+    valueMap.put("mno", mno);
+    valueMap.put("pwd", pwd);
+    
+    return memberDao.passwordCheck(valueMap);
+}
+
+@Override
+public void update(Member member) throws Exception {
+	memberDao.update(member);
+}
+
+@Override
+public void photoupload(Member member) throws Exception {
+	memberDao.photoupload(member);
+	
+}
+
+@Override
+public Member selectOne(int mno) throws Exception {
+	return memberDao.selectOne(mno);
+}
 
 }
 

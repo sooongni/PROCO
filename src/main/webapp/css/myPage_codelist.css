@@ -108,7 +108,7 @@ border-bottom: solid 1px rgba(255,255,255,0.1);
 .codeListContaier{
   position: absolute;
   right: 0px;
-  width: 850px;
+  width: 780px;
 }
 
   tr:nth-child(even){

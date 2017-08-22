@@ -386,11 +386,8 @@
 </head>
 <body>
 	<div class="header_Container">
-		<div class="header"></div>
 	</div>
 	<!--header_Container-->
-
-	<div class="notYet"></div>
 
 	<div class="home_container">
 		<div id=home_main>
@@ -515,10 +512,10 @@
 	<script src="./js/getCodeModal.js"></script>
 
 	<script>
-	$('.copiedBtn').css('display','none')
-		$('.header').load("header.html")
+		$('.copiedBtn').css('display','none')
+		$('.header_Container').load("header.html")
 		$('.footer').load("footer.html")
-		$('.notYet').load("notYet.html")
+		
 	</script>
 	<script id="top1-template" type="text/x-handlebars-template">
 {{#each selectListTop5}}
@@ -636,8 +633,5 @@
   </div>
 </div>
 {{/each}}
-</script>
-<script>
-
 </script>
 </html>

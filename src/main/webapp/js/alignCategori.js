@@ -13,7 +13,7 @@ $(window).scroll(function() {
 	}
 });
 
-$('.header').load("header.html")
+$('.header_Container').load("header.html")
 $('.slide_container').load("cart.html")
 $('.footer').load("footer.html")
 $('.notYet').load("notYet.html")

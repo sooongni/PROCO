@@ -6,16 +6,12 @@ import java.util.Map;
 import soongni.domain.Member;
 
 public interface MemberDao {
-  List<Member> selectList(Map<String,Object> valueMap);
-  int insert(Member member);
-  Member selectOneByEmailPassword(Map<String,Object> valueMap);
- /* Code selectOne(int no);
-  Code selectOneByEmailPassword(Map<String,Object> valueMap);
-  int countAll();
-  
-  int delete(int no);
-  int update(Code code);
-  void insertPhoto(Map<String,Object> valueMap);
-  List<String> selectPhotoList(int codeNo);
-  void deletePhoto(int codeNo);*/
+	List<Member> selectList(Map<String,Object> valueMap);
+	Member passwordCheck(Map<String, Object> valueMap);
+	Member selectOneByEmailPassword(Map<String,Object> valueMap);
+	int insert(Member member);
+	int update(Member member);
+	int delete(int mno);
+	void photoupload(Member member);
+	Member selectOne(int mno);
 }

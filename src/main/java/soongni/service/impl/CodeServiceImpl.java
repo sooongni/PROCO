@@ -17,12 +17,9 @@ public class CodeServiceImpl implements CodeService {
   @Autowired
   CodeDao codeDao;
   
-  public List<Code> list(int pageNo, int pageSize) throws Exception {
-    HashMap<String,Object> valueMap = new HashMap<>();
-    valueMap.put("startIndex", (pageNo - 1) * pageSize);
-    valueMap.put("pageSize", pageSize);
+  public List<Code> list(int mno) throws Exception {
+	  return codeDao.selectList(mno);
     
-    return codeDao.selectList(valueMap);
   }
   
   public List<Code> selectListTop5(int pageNo, int pageSize) throws Exception {

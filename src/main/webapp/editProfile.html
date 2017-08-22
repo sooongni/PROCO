@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>Mypage</title>
+<link rel="stylesheet"
+	href="./font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/mypage.css">
+<link rel="stylesheet" href="node_modules/easy-autocomplete/dist/easy-autocomplete.min.css">
+<link rel="stylesheet" href="css/brandDetail.css">
+<link rel="stylesheet" href="jqueryUi/jquery-ui.css">
+
+<style>
+
+#oldPassword{
+	width:500px;
+}
+#oldPasswordBtn {
+    width: 60px;
+    height: 32px;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    background: none;
+    font-size: 0.8rem;
+}
+.notice {
+    position: absolute;
+    font-size: 0.5rem;
+    right: 0px;
+    color: #002048;
+}
+}
+</style>
+</head>
+<body>
+	<div class="header_Container">
+	</div>
+	<!--header_Container-->
+
+	<div class="myPage_Container">
+
+		<div class="BrandDetail"></div>
+
+		<div class="BrandCodelistContainer">
+			<div class="aliasemailHello">회원정보 변경</div>
+			<div class=designBar></div>
+			<div class="memberDetail">
+						
+				<h3>닉네임 변경</h3>
+						<label class="memberDetailLabel">닉네임</label>
+						<input class="alias " value="숭니"/><br> 
+			
+			
+				<h3>패스워드 변경</h3>
+						<label class="memberDetailLabel">현재 패스워드</label>
+						<input class="password" id="oldPassword" type="password"/><button id="oldPasswordBtn" type="button">확인</button><br>
+						
+						<label class="memberDetailLabel">새로운 패스워드</label>
+						<input class="newpassword createPass" type="password"/><br> 
+						
+						<label class="memberDetailLabel">새로운 패스워드 확인</label>
+						<input class="newpassword confirmPass" type="password"/><br> 
+				
+				
+						
+				<h3>업체 관련 변경</h3>		
+						<label class="memberDetailLabel">대표자 전화번호</label> 
+						<input class="ceotel" id="ceotel" type="text" />
+						
+					<p class="notice"> 이메일과 사업자명, 사업자 등록번호는 수정이 불가능합니다.</p>
+						<button type="button" class="editProfileBtn">변경하기</button>
+			</div>
+			
+		 	
+		</div>
+
+	</div>
+	<div class="footer"></div>
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="node_modules/crypto-js/crypto-js.js"></script>
+
+<script src="node_modules/easy-autocomplete/dist/jquery.easy-autocomplete.js"></script>
+<script src="./js/handlebars-v4.0.10.js"></script>
+<script src="./js/mypage.js"></script>
+<script src="./js/handlebars-v4.0.10.js"></script>
+
+<script>
+var fiAlias;
+var newPass;
+confirmPass()
+$('.BrandDetail').load('myPage_profile.html')
+function confirmPass() {
+	  $('.newpassword').on('keyup', function() {
+		  console.log($(this).val())
+	    if($('.createPass').val() != $('.confirmPass').val()) {
+	      $('.newpassword').css('color','red')
+	    } else {
+	      $('.newpassword').css('color','yellowgreen')
+	    }
+	  })
+	}
+	
+updateProfile()	
+function updateProfile() {
+	$('.editProfileBtn').click(function(){
+		newPass=$('.createPass').val()
+		fiAlias=$('.alias').val()
+		if(checkOk==true){
+			$.post('member/update.json',{
+				'mno':userNo,
+				'alias':fiAlias,
+				'pwd':newPass
+				}, function(result){
+				console.log("변경된정보는 ===>",result)
+				alert("회원정보가 변경되었습니다")
+				location.href='mypage.html'
+			})
+		}else{
+			console.log("비밀번호 확인안됨")
+		}
+	})
+}
+	
+var oldPass;
+$('#oldPasswordBtn').click(function(){
+	var a=userNo
+	oldPass=$('#oldPassword').val()
+	var encodeOldpass = ("*"+CryptoJS.SHA1(CryptoJS.SHA1(oldPass))).toUpperCase();
+	$.getJSON('member/passwordCheck.json', {'mno':a, 'pwd':encodeOldpass}, function(result){
+		if(result.status =='fail'){
+			$('#oldPassword').css('color', 'red')
+			$('#oldPassword').text('')
+		}
+		
+		else{
+			$('#oldPassword').css('color', 'yellowgreen')
+			checkOk = true
+		}
+	})
+})	
+</script>
+</html>

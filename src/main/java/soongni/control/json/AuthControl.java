@@ -1,7 +1,6 @@
 package soongni.control.json;
 
 
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +22,7 @@ public class AuthControl {
 	MemberService memberService;
 	@RequestMapping(path="login", method=RequestMethod.POST)
 
-	public JsonResult login(String email, String pwd,
-			Model model, HttpSession session) throws Exception  {
-		System.out.println("로그인들어왓다...");
+	public JsonResult login(String email, String pwd, Model model, HttpSession session) throws Exception  {
 		Member member = null;
 		member = memberService.getByEmailPassword(email, pwd);
 		if (member != null) { 
@@ -48,9 +45,7 @@ public class AuthControl {
 
 	@RequestMapping("userinfo")
 	public JsonResult userInfo(HttpSession session) throws Exception {
-		System.out.println("여기까지않옴???");
 		Member loginMember = (Member)session.getAttribute("loginMember");
-	System.out.println(loginMember);
 		return new JsonResult(JsonResult.SUCCESS, loginMember);
 	}
 }
