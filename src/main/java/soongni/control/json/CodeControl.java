@@ -142,10 +142,11 @@ public class CodeControl {
  */
   @RequestMapping("add")
   public JsonResult add(Code code) throws Exception {
-   
+   System.out.println(code);
   
     
     codeService.add(code);
+    System.out.println(code);
     return new JsonResult(JsonResult.SUCCESS, "ok");
   }
   

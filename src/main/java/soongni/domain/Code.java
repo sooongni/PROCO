@@ -20,8 +20,9 @@ public class Code{
 	int used;
 	String logo;
 	String midcat;
-	int offper;
-	int offpri;
+	String offper;
+	String offpri;
+	String limitp;
 	public int getPostno() {
 		return postno;
 	}
@@ -142,17 +143,23 @@ public class Code{
 	public void setMidcat(String midcat) {
 		this.midcat = midcat;
 	}
-	public int getOffper() {
+	public String getOffper() {
 		return offper;
 	}
-	public void setOffper(int offper) {
+	public void setOffper(String offper) {
 		this.offper = offper;
 	}
-	public int getOffpri() {
+	public String getOffpri() {
 		return offpri;
 	}
-	public void setOffpri(int offpri) {
+	public void setOffpri(String offpri) {
 		this.offpri = offpri;
+	}
+	public String getLimitp() {
+		return limitp;
+	}
+	public void setLimitp(String limitp) {
+		this.limitp = limitp;
 	}
 	@Override
 	public String toString() {
@@ -160,8 +167,9 @@ public class Code{
 				+ ", dscp=" + dscp + ", sdt=" + sdt + ", edt=" + edt + ", podate=" + podate + ", potime=" + potime
 				+ ", link=" + link + ", good=" + good + ", view=" + view + ", stat=" + stat + ", code=" + code
 				+ ", type=" + type + ", brname=" + brname + ", used=" + used + ", logo=" + logo + ", midcat=" + midcat
-				+ ", offper=" + offper + ", offpri=" + offpri + "]";
+				+ ", offper=" + offper + ", offpri=" + offpri + ", limitp=" + limitp + "]";
 	}
+	
 	
 	
 	

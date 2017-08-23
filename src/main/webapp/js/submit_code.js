@@ -13,7 +13,13 @@ fiEdt2 = $('.fiEdt2'),
 fiCode = $('.outCode'),
 fiCode2 = $('.outCode2'),
 fiDscp = $('.fiDscp'),
-fiDscp2 = $('.fiDscp2')
+fiDscp2 = $('.fiDscp2'),
+fiOffpri =$('.fiOffpri'),
+fiOffpri2 =$('.fiOffpri2'),
+fiOffper = $('.fiOffper'),
+fiOffper2 = $('.fiOffper2'),
+fiLimitP = $('.fiLimitP'),
+fiLimitP2 = $('.fiLimitP2')
 
 
 var userNo = 0;
@@ -88,11 +94,9 @@ $("#selectCodeType").on('change', function() {
 	if (Typevalue == '0') {
 		$(".any_publicCode_Container").css('display', 'none')
 		$(".busi_publicCode_Container").css('display', '')
-		$(".busi_privateCode_Container").css('display', 'none')
 		
 		var a = userNo
-		console.log("mno---->aaa",a)
-
+		
 		$.getJSON('busimember/brandMemberBrand.json',{'ceono':a},function(result){
 			console.log(result)
 			$('#busiMemberbrandName').val(result.data.brname)
@@ -104,13 +108,11 @@ $("#selectCodeType").on('change', function() {
 	}if (Typevalue == '1') {
 		$(".any_publicCode_Container").css('display', '')
 		$(".busi_publicCode_Container").css('display', 'none')
-		$(".busi_privateCode_Container").css('display', 'none')
 	}
 })
 
 
 $('#submitBtn').click(function() {
-	console.log(fiSdt2.val(), fiEdt2.val())
 	if (Typevalue == '0') {
 		$.post('/code/add.json', {
 			'mno':userNo,
@@ -121,7 +123,10 @@ $('#submitBtn').click(function() {
 			'edt':fiEdt2.val(),
 			'code':fiCode2.val(),
 			'dscp': fiDscp2.val(),
-			'type':Typevalue
+			'type':Typevalue,
+			'offper':fiOffper2.val(),
+			'offpri':fiOffpri2.val(),
+			'limitp':fiLimitP2.val()
 		}, function(result) {
 			if(result.status == 'success'){
 				location.href="myPage_codelist.html"
@@ -130,6 +135,7 @@ $('#submitBtn').click(function() {
 	}
 
 	if (Typevalue == '1') {
+		console.log(fiOffpri.val(),fiOffper.val(),fiLimitP.val())
 		$.post('/code/add.json', {
 			'mno':userNo,
 			'comno' : comnovalue,
@@ -139,7 +145,10 @@ $('#submitBtn').click(function() {
 			'edt':fiEdt.val(),
 			'code':fiCode.val(),
 			'dscp': fiDscp.val(),
-			'type':Typevalue		
+			'type':Typevalue,
+			'offper':fiOffper.val(),
+			'offpri':fiOffpri.val(),
+			'limitp':fiLimitP.val()
 		}, function(result) {
 			if(result.status == 'success'){
 				location.href="myPage_codelist.html"
@@ -147,14 +156,16 @@ $('#submitBtn').click(function() {
 		}, 'json')
 	}
 })
-
-
-$(".checkbox").click(function() {
-	//체크했다면 자신을 제외한 다른 체크를 해제
-	if ($(this).attr('checked')) {
-		$(".checkbox").not(this).attr('checked', '');
-	}
-});
+priceOrPercent()
+function priceOrPercent(){
+	fiOffper.keyup(function(){
+		fiOffpri.attr('readOnly', true).attr('placeholder',"%를 입력하셨습니다.")
+	})
+	
+	fiOffpri.keyup(function(){
+		fiOffper.attr('readOnly', true).attr('placeholder',"원을 입력하셨습니다.")
+	})
+}
 
 $modal = $('.modal-frame');
 
@@ -205,6 +216,8 @@ $("#fiBrnameSearch").click(function(){
 					'logo':insertLogo.val()
 				}, function(result) {
 					if(result.status == 'success'){
+					  alert("성공적")	
+					  location.reload()
 					}
 				}, 'json')
 			})

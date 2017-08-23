@@ -27,6 +27,8 @@
     <result column="midcat" property="midcat"/>
     <result column="offper" property="offper"/>
     <result column="offpri" property="offpri"/>
+    <result column="offpri" property="offpri"/>
+    <result column="limitp" property="limitp"/>
   </resultMap>
 
   <select id="selectList" resultMap="codeMap" parameterType="int" >
@@ -87,8 +89,8 @@
   </select>
 
   <insert id="insert" parameterType="code" useGeneratedKeys="true" keyColumn="postno" keyProperty="postno">
-    insert into post(mno, midno, comno, titl, dscp, sdt, edt,code, podate, potime, stat, type) 
-    values(#{mno}, #{midno}, #{comno},#{titl},#{dscp},#{sdt},#{edt}, #{code},curdate(), curtime(),  0, #{type})
+    insert into post(mno, midno, comno, titl, dscp, sdt, edt,code, podate, potime, stat, type, offper, offpri, limitp) 
+    values(#{mno}, #{midno}, #{comno},#{titl},#{dscp},#{sdt},#{edt}, #{code}, curdate(), curtime(),  0, #{type}, #{offper}, #{offpri},#{limitp})
   </insert>
   
   <update id="favorUpdate" parameterType="code">

@@ -38,9 +38,9 @@ public class MemberControl {
   
   @RequestMapping("add")
   public JsonResult add(Member member) throws Exception {
-    System.out.println("일반멤버 추가하러왔다.");
+    System.out.println(member);
     memberService.add(member);
-    System.out.println("추가되었다...");
+    System.out.println(member);
     return new JsonResult(JsonResult.SUCCESS, "ok");
   }
   

@@ -1,8 +1,14 @@
 var userNo=0;
-$.getJSON('/auth/userinfo.json', function(result) {
-	userNo=result.data.mno
-	cartList()
-})
+ 
+ $.getJSON('/auth/userinfo.json', function(result) {
+	if(result.data==undefined){
+		return
+	}else{
+		userNo=result.data.mno
+		cartList()
+	}
+ })
+
 var shoppingCart = $('.shopping-cart-items')
 
 function cartList() {

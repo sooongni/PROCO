@@ -1,3 +1,9 @@
+var home_categori_detail = $("#home_categori_detail")
+var home_brands_detail = $("#home_brands_detail")
+var home_openCategori= $("#home_openCategori")
+var home_popular_categori = $("#home_popular_categori" )
+var home_openBrands = $("#home_openBrands")
+var home_popular_brands = $("#home_popular_brands" )
 
 var swiper = new Swiper('.swiper-container', {
 	pagination: '.swiper-pagination',
@@ -10,67 +16,13 @@ var swiper = new Swiper('.swiper-container', {
 
 });
 
-
-var home_categori_detail = $("#home_categori_detail")
-var home_brands_detail = $("#home_brands_detail")
-var home_openCategori= $("#home_openCategori")
-var home_popular_categori = $("#home_popular_categori" )
-var home_openBrands = $("#home_openBrands")
-var home_popular_brands = $("#home_popular_brands" )
-
-
-home_categori_detail.hide()
-home_brands_detail.hide()
-
-home_openCategori.click(function() {
-	if(squareBigger==true){
-		home_popular_categori.animate(
-				{height:400},500)
-				home_categori_detail.show()
-
-				squareBigger = false;
-	}else{
-		home_popular_categori.animate(
-				{height:100},500)
-				home_categori_detail.hide(700)
-				squareBigger = true;
-	}
-});
-
-
-home_openBrands.click(function() {
-	if(squareBigger==true){
-		home_popular_brands.animate(
-				{height:400},500)
-				home_brands_detail.show()
-
-				squareBigger = false;
-	}else{
-		home_popular_brands.animate(
-				{height:100},500)
-				home_brands_detail.hide(700)
-				squareBigger = true;
-	}
-});
-
-
-
 $('#home_gotoSubmmit').click(function () {
 	location.href="submit_code.html"
 })
 
 
-
 $('#home_categori_detail').click(function () {
 	location.href="alignCategori.html"
-})
-
-$('#home_brands_detail').click(function() {
-	location.href = "alignBrand.html"
-})
-
-$('#responsive1_desc_button').click(function() {
-	location.href = "code_detail.html"
 })
 
 var top1table=$('.home_responsive1')
@@ -83,7 +35,6 @@ var onlyProcoItemContainer = $('.onlyProcoItemContainer-template')
 
 
 $(function(){
-	
 	$.getJSON('code/selectListTop5.json',function(result){
 		var templateFn = Handlebars.compile($('#top1-template').text())
 		var templateFn2 = Handlebars.compile($('#top5-template').text())
@@ -93,7 +44,9 @@ $(function(){
 		top1table.html(generatedHTML) ;
 		top5table.text('') // tbody의 기존 tr 태그들을 지우고
 		top5table.html(generatedHTML2) ;
-		like() //좋아요 기능 호출
+		
+		//like() //좋아요 기능 호출
+		
 		for (var i = 0; i < result.data.selectListTop5.length; i++) {
 			$.getJSON('/cart/goodYesorNo.json', {'postno' : result.data.selectListTop5[i].postno}, function(result2) {
 				if (result2.data == "로그인하세요") {

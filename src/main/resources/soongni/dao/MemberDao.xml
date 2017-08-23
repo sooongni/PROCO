@@ -38,8 +38,8 @@
   </select>
   
   <insert id="insert" parameterType="member" useGeneratedKeys="true" keyColumn="mno" keyProperty="mno">
-    insert into memb(email,pwd,alias,type) 
-    values(#{email},password(#{pwd}),#{alias}, #{type})
+    insert into memb(email,pwd,alias,type,pic) 
+    values(#{email},password(#{pwd}),#{alias}, #{type}, '/memberprofile/1503458885720_1')
     
   </insert>
   
